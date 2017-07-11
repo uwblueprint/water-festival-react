@@ -22,24 +22,19 @@ export default class waterfestival extends Component {
         backgroundColor="#C4C4C4"
         rippleColor="white"
         style={{ height: 60, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
-        onTabChange={(newTabIndex) => alert(`New Tab at position ${newTabIndex}`)}
         shifting="false"
       >
         <Tab
-          barBackgroundColor="#C4C4C4"
           label="All Activities"
           icon={<Icon size={24} color="black" name="add" />}/>
 
         <Tab
-          barBackgroundColor="#828282"
           label="My Activities"
           icon={<Icon size={24} color="black" name="account-circle" />}/>
         <Tab
-          barBackgroundColor="#C4C4C4"
           label="Maps"
           icon={<Icon size={24} color="black" name="map" />}/>
         <Tab
-          barBackgroundColor="#828282"
           label="Information"
           icon={<Icon size={24} color="black" name="perm-device-information" />}/>
       </BottomNavigation>
