@@ -9,35 +9,27 @@ import {
   AppRegistry,
   StyleSheet,
   Text,
-  View
+  View,
+  ScrollView,
+  Image
 } from 'react-native';
 
 export default class waterfestival extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
+      <ScrollView horizontal={true} maximumZoomScale={5.0} >
+        <ScrollView>
+          <Image
+              source = {{ uri: 'https://water-festival.herokuapp.com/map.png' }}
+              style = {{ width: 838, height: 648 }}
+          />
+        </ScrollView>
+      </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-  },
   welcome: {
     fontSize: 20,
     textAlign: 'center',
