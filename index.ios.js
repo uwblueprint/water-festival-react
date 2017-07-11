@@ -18,7 +18,7 @@ export default class waterfestival extends Component {
   render() {
     return (
       <ScrollView horizontal={true} maximumZoomScale={5.0} >
-        <ScrollView style={styles.contentContainer} bouncesZoom={false}>
+        <ScrollView style={styles.contentContainer}>
           <Image
               source = {{ uri: 'https://water-festival.herokuapp.com/map.png' }}
               style = {{ width: 838, height: 648 }}
