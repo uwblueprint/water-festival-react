@@ -11,23 +11,39 @@ import {
   Text,
   View
 } from 'react-native';
+import BottomNavigation, { Tab } from 'react-native-material-bottom-navigation'
+import Icon from 'react-native-vector-icons/MaterialIcons'
 
 export default class waterfestival extends Component {
   render() {
     return (
-      <View style={styles.container}>
-        <Text style={styles.welcome}>
-          Welcome to React Native!
-        </Text>
-        <Text style={styles.instructions}>
-          To get started, edit index.android.js
-        </Text>
-        <Text style={styles.instructions}>
-          Double tap R on your keyboard to reload,{'\n'}
-          Shake or press menu button for dev menu
-        </Text>
-      </View>
-    );
+      <BottomNavigation
+        labelColor="black"
+        backgroundColor="#C4C4C4"
+        rippleColor="white"
+        style={{ height: 60, elevation: 8, position: 'absolute', left: 0, bottom: 0, right: 0 }}
+        onTabChange={(newTabIndex) => alert(`New Tab at position ${newTabIndex}`)}
+        shifting="false"
+      >
+        <Tab
+          barBackgroundColor="#C4C4C4"
+          label="All Activities"
+          icon={<Icon size={24} color="black" name="add" />}/>
+
+        <Tab
+          barBackgroundColor="#828282"
+          label="My Activities"
+          icon={<Icon size={24} color="black" name="account-circle" />}/>
+        <Tab
+          barBackgroundColor="#C4C4C4"
+          label="Maps"
+          icon={<Icon size={24} color="black" name="map" />}/>
+        <Tab
+          barBackgroundColor="#828282"
+          label="Information"
+          icon={<Icon size={24} color="black" name="perm-device-information" />}/>
+      </BottomNavigation>
+    )
   }
 }
 
