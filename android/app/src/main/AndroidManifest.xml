@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.waterfestival"
+    package="com.waterfestivalapp"
     android:versionCode="1"
     android:versionName="1.0">
 

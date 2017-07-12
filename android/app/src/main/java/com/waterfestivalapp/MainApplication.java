@@ -1,4 +1,4 @@
-package com.waterfestival;
+package com.waterfestivalapp;
 
 import android.app.Application;
 
