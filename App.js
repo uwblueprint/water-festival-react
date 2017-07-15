@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {
   AppRegistry,
   Button,
+  SectionList,
+  StyleSheet,
   Text,
   View
 } from 'react-native';
@@ -39,8 +41,17 @@ class MyActivitiesScreen extends Component {
   render() {
     const { navigate } = this.props.navigation;
     return (
-      <View>
-        <Text>These are my activities.</Text>
+      <View style={allActivitiesStyles.container}>
+        <SectionList
+          sections={[
+            {title: 'Grade 2', data: ['Devin']},
+            {title: 'Grade 3', data: ['Jackson', 'James', 'Jillian', 'Jimmy', 'Joel', 'John', 'Julie']},
+            {title: 'Grade 4', data: []},
+            {title: 'Grade 5', data: []},
+          ]}
+          renderItem={({item}) => <Text style={allActivitiesStyles.item}>{item}</Text>}
+          renderSectionHeader={({section}) => <Text style={allActivitiesStyles.sectionHeader}>{section.title}</Text>}
+          />
       </View>
     );
   }
@@ -80,5 +91,28 @@ const WaterFestivalApp = StackNavigator({
   Map: { screen: MapScreen },
   Information: { screen: InformationScreen },
 });
+
+const allActivitiesStyles = StyleSheet.create({
+  container: {
+   flex: 1,
+   paddingTop: 22
+  },
+  sectionHeader: {
+    paddingTop: 2,
+    paddingLeft: 36,
+    paddingRight: 10,
+    paddingBottom: 2,
+    fontFamily: 'Roboto',
+    fontSize: 15,
+    fontWeight: 'bold',
+    color: '#FFFFFF',
+    backgroundColor: '#92D3F9',
+  },
+  item: {
+    padding: 10,
+    fontSize: 18,
+    height: 44,
+  },
+})
 
 AppRegistry.registerComponent('WaterFestivalApp', () => WaterFestivalApp);
