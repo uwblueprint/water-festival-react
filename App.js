@@ -44,7 +44,7 @@ class MyActivitiesScreen extends Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation: { navigate } } = this.props;
     return (
       <View>
         <Text>These are my activities.</Text>
@@ -189,7 +189,7 @@ class MapScreen extends Component {
   }
 
   render() {
-    const {navigate} = this.props.navigation;
+    const { navigation: { navigate } } = this.props;
     return (
       <ScrollView horizontal={true} maximumZoomScale={5.0} >
         <ScrollView>
@@ -217,7 +217,7 @@ class InformationScreen extends Component {
   };
 
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation: { navigate } } = this.props;
     return (
       <View>
         <Text>More information can be found here.</Text>
