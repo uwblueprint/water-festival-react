@@ -38,7 +38,7 @@ class AllActivitiesScreen extends PureComponent {
   }
 }
 
-class MyActivitiesScreen extends Component {
+class MyActivitiesScreen extends PureComponent {
   static navigationOptions = {
     title: 'My Activities',
   };
@@ -53,7 +53,7 @@ class MyActivitiesScreen extends Component {
   }
 }
 
-class MapScreen extends Component {
+class MapScreen extends PureComponent {
   static navigationOptions = {
     title: 'Map',
   };
@@ -211,7 +211,7 @@ class MapScreen extends Component {
 
 MapScreen.defaultProps = { initialInput: '', x: 0, y: 0 };
 
-class InformationScreen extends Component {
+class InformationScreen extends PureComponent {
   static navigationOptions = {
     title: 'Information',
   };
