@@ -14,12 +14,13 @@ import BottomNavigation, { Tab, NavigationComponent } from 'react-native-materia
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import { TabNavigator } from 'react-navigation'
 
-class AllActivitiesScreen extends Component {
+class AllActivitiesScreen extends PureComponent {
   static navigationOptions = {
     title: 'All Activities',
   };
+
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation: { navigate } } = this.props;
     return (
       <View style={allActivitiesStyles.container}>
         <SectionList
@@ -37,12 +38,13 @@ class AllActivitiesScreen extends Component {
   }
 }
 
-class MyActivitiesScreen extends Component {
+class MyActivitiesScreen extends PureComponent {
   static navigationOptions = {
     title: 'My Activities',
   };
+
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation: { navigate } } = this.props;
     return (
       <View>
         <Text>These are my activities.</Text>
@@ -51,17 +53,20 @@ class MyActivitiesScreen extends Component {
   }
 }
 
-class MapScreen extends Component {
+class MapScreen extends PureComponent {
   static navigationOptions = {
     title: 'Map',
   };
+
   constructor(props) {
     super(props);
     this.state = {label: props.initialInput, x: props.x, y: props.y};
   }
+
   input() {
     this.setState({label: 'hello world'})
   }
+
   onClick(evt) {
     this.setState({label: '', x: evt.nativeEvent.locationX, y: evt.nativeEvent.locationY});
     x = evt.nativeEvent.locationX;
@@ -182,15 +187,16 @@ class MapScreen extends Component {
     }
 
   }
+
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation: { navigate } } = this.props;
     return (
       <ScrollView horizontal={true} maximumZoomScale={5.0} >
         <ScrollView>
           <TouchableOpacity onPress={(evt) => this.onClick(evt) } activeOpacity={1.0}>
             <Image
-              source = {{ uri: 'https://water-festival.herokuapp.com/map.png' }}
-              style = {{ width: 838, height: 648 }}
+              source={{ uri: 'https://water-festival.herokuapp.com/map.png' }}
+              style={{ width: 838, height: 648 }}
             >
             <Text style={{backgroundColor: 'white', top: this.state.y - 5, left: this.state.x-5, position: "absolute"}}>
               {this.state.label}
@@ -202,14 +208,16 @@ class MapScreen extends Component {
     );
   }
 }
+
 MapScreen.defaultProps = { initialInput: '', x: 0, y: 0 };
 
-class InformationScreen extends Component {
+class InformationScreen extends PureComponent {
   static navigationOptions = {
     title: 'Information',
   };
+
   render() {
-    const { navigate } = this.props.navigation;
+    const { navigation: { navigate } } = this.props;
     return (
       <View>
         <Text>More information can be found here.</Text>
@@ -220,38 +228,39 @@ class InformationScreen extends Component {
 
 
 const WaterFestivalApp = TabNavigator({
-  AllActivitiesScreen: { screen: AllActivitiesScreen },
-  MyActivitiesScreen: {screen: MyActivitiesScreen},
-  MapScreen: { screen: MapScreen },
-  InformationScreen: {screen: InformationScreen}
-}, {
-  tabBarComponent: NavigationComponent,
-  tabBarPosition: 'bottom',
-  tabBarOptions: {
-    bottomNavigationOptions: {
-      style: {
-        height: 60
-      },
-      labelColor: 'black',
-      backgroundColor: '#C4C4C4',
-      rippleColor: 'white',
-      tabs: {
-        MapScreen: {
-          icon: <Icon size={24} color="black" name="add" />
+    AllActivitiesScreen: { screen: AllActivitiesScreen },
+    MyActivitiesScreen: {screen: MyActivitiesScreen},
+    MapScreen: { screen: MapScreen },
+    InformationScreen: {screen: InformationScreen}
+  },
+  {
+    tabBarComponent: NavigationComponent,
+    tabBarPosition: 'bottom',
+    tabBarOptions: {
+      bottomNavigationOptions: {
+        style: {
+          height: 60
         },
-        AllActivitiesScreen: {
-          icon: <Icon size={24} color="black" name="account-circle" />
-        },
-        MyActivitiesScreen: {
-          icon: <Icon size={24} color="black" name="map" />
-        },
-        InformationScreen: {
-          icon: <Icon size={24} color="black" name="perm-device-information" />
+        labelColor: 'black',
+        backgroundColor: '#C4C4C4',
+        rippleColor: 'white',
+        tabs: {
+          MapScreen: {
+            icon: <Icon size={24} color="black" name="add" />
+          },
+          AllActivitiesScreen: {
+            icon: <Icon size={24} color="black" name="account-circle" />
+          },
+          MyActivitiesScreen: {
+            icon: <Icon size={24} color="black" name="map" />
+          },
+          InformationScreen: {
+            icon: <Icon size={24} color="black" name="perm-device-information" />
+          }
         }
       }
     }
-  }
-})
+  })
 
 const styles = StyleSheet.create({
   container: {
@@ -260,16 +269,19 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#F5FCFF',
   },
+  
   welcome: {
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
+  
   instructions: {
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5,
   },
+  
   container: {
     flex: 1,
     alignContent: 'center',
@@ -279,11 +291,13 @@ const styles = StyleSheet.create({
     position: 'relative',
     fontSize: 40,
   },
+  
   textinputContainer: {
     marginTop: 20,
     justifyContent: 'center',
     alignItems: 'center',
   },
+  
   textinput: {
     width: 60,
     marginVertical: 2,
@@ -300,6 +314,7 @@ const allActivitiesStyles = StyleSheet.create({
    flex: 1,
    paddingTop: 22
   },
+  
   sectionHeader: {
     paddingTop: 3,
     paddingLeft: 36,
@@ -309,6 +324,7 @@ const allActivitiesStyles = StyleSheet.create({
     color: '#FFFFFF',
     backgroundColor: '#92D3F9',
   },
+  
   item: {
     paddingTop: 8,
     paddingLeft: 36,
